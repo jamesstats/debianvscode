@@ -5,14 +5,18 @@ import pandas as pd
 # 1. Define the tickers and the timeframe
 tickers = ["TSLA", "SPCX"]
 start_date = "2026-06-12"
-end_date = "2026-06-26"  # Fetch data through June 25th
+end_date = "2026-06-26"  # Requested inclusive end date
 
-print(f"Downloading data from {start_date} to {end_date}...")
+# yfinance treats the `end` parameter as exclusive. To include `end_date`
+# in the downloaded range, add one day to the end date.
+end_date_inclusive = (pd.to_datetime(end_date) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+
+print(f"Downloading data from {start_date} to {end_date} (inclusive)...")
 
 try:
     # 2. Download the historical Adjusted Close prices
     # Use 'Close' since 'Adj Close' may not be available for all tickers
-    downloaded = yf.download(tickers, start=start_date, end=end_date)
+    downloaded = yf.download(tickers, start=start_date, end=end_date_inclusive)
     
     # Extract Close data from MultiIndex columns
     if isinstance(downloaded.columns, pd.MultiIndex):

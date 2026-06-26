@@ -7,13 +7,17 @@ import yfinance as yf
 # TICKER COMPARISON: SPCX vs TSLA
 # ============================================
 
-# Fetch data starting from June 12, 2026
+# Fetch data starting from June 22, 2026
 start_date = "2026-06-12"
-end_date = "2026-06-25"  # Current date
+end_date = "2026-06-26"  # Requested inclusive end date
+
+# yfinance treats the `end` parameter as exclusive. To include `end_date`,
+# add one day and use that as the `end` argument.
+end_date_inclusive = (pd.to_datetime(end_date) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
 
 try:
-    spcx = yf.download("SPCX", start=start_date, end=end_date, progress=False)
-    tsla = yf.download("TSLA", start=start_date, end=end_date, progress=False)
+    spcx = yf.download("SPCX", start=start_date, end=end_date_inclusive, progress=False)
+    tsla = yf.download("TSLA", start=start_date, end=end_date_inclusive, progress=False)
 
     # Check data structure and handle appropriately
     if spcx.empty or tsla.empty:
@@ -50,7 +54,7 @@ try:
         
         # Print summary
         print("=" * 80)
-        print("TICKER COMPARISON: SPCX vs TSLA (Starting June 12, 2026)")
+        print("TICKER COMPARISON: SPCX vs TSLA (Starting June 22, 2026)")
         print("=" * 80)
         print(comparison.to_string(index=False))
         print("\n" + "=" * 80)
