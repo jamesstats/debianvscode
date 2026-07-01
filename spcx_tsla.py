@@ -9,7 +9,7 @@ import yfinance as yf
 
 # Fetch data starting from June 22, 2026
 start_date = "2026-06-12"
-end_date = "2026-06-30"  # Requested inclusive end date
+end_date = "2026-07-01"  # Requested inclusive end date
 
 # yfinance treats the `end` parameter as exclusive. To include `end_date`,
 # add one day and use that as the `end` argument.
