@@ -5,7 +5,7 @@ import pandas as pd
 # 1. Define the tickers and the timeframe
 tickers = ["TSLA", "SPCX"]
 start_date = "2026-06-12"
-end_date = "2026-07-08"  # Requested inclusive end date
+end_date = "2026-07-13"  # Requested inclusive end date
 
 # yfinance treats the `end` parameter as exclusive. To include `end_date`
 # in the downloaded range, add one day to the end date.
