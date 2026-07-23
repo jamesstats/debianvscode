@@ -9,7 +9,7 @@ import yfinance as yf
 
 # Fetch data starting from June 22, 2026
 start_date = "2026-06-12"
-end_date = "2026-07-25"  # Requested inclusive end date
+end_date = "2026-07-23"  # Requested inclusive end date 
 
 # yfinance treats the `end` parameter as exclusive. To include `end_date`,
 # add one day and use that as the `end` argument.
@@ -95,7 +95,7 @@ try:
         x_pos = range(len(comparison) - 1)
         width = 0.35
         axes[1].bar([i - width/2 for i in x_pos], comparison["SPCX_Return"][1:].values, 
-                    label="SPCX", alpha=0.7, width=width, color="blue")
+                    label="SPCX", alpha=0.7, width=width, color="black")
         axes[1].bar([i + width/2 for i in x_pos], comparison["TSLA_Return"][1:].values, 
                     label="TSLA", alpha=0.7, width=width, color="red")
         axes[1].set_title("Daily Percentage Change: SPCX vs TSLA", fontsize=14, fontweight="bold")
@@ -118,7 +118,6 @@ except Exception as e:
     traceback.print_exc()
     print("Note: This may occur if the tickers or dates are not available.")
 
-# ============================================
-# MAMDANI POLLING ANALYSIS
-# ============================================
 
+
+ 
