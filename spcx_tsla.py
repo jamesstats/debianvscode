@@ -9,7 +9,7 @@ import yfinance as yf
 
 # Fetch data starting from June 22, 2026
 start_date = "2026-06-12"
-end_date = "2026-07-27"  # Requested inclusive end date 
+end_date = "2026-07-28"  # Requested inclusive end date 
 
 # yfinance treats the `end` parameter as exclusive. To include `end_date`,
 # add one day and use that as the `end` argument.
@@ -101,7 +101,7 @@ try:
         axes[1].set_title("Daily Percentage Change: SPCX vs TSLA", fontsize=14, fontweight="bold")
         axes[1].set_ylabel("Daily Return (%)", fontsize=11)
         axes[1].set_xlabel("Trading Day", fontsize=11)
-        axes[1].tick_params(axis='x', rotation=45)
+        axes[1].tick_params(axis='x', rotation=30) 
         axes[1].set_xticks(x_pos)
         axes[1].set_xticklabels([f"Day {i+1}" for i in x_pos])
         axes[1].legend()
