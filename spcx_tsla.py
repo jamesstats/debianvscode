@@ -9,7 +9,7 @@ import yfinance as yf
 
 # Fetch data starting from June 22, 2026
 start_date = "2026-06-12"
-end_date = "2026-08-14"  # Requested inclusive end date 
+end_date = "2026-08-18"  # Requested inclusive end date 
 
 # yfinance treats the `end` parameter as exclusive. To include `end_date`,
 # add one day and use that as the `end` argument.
@@ -84,7 +84,7 @@ try:
         fig, axes = plt.subplots(2, 1, figsize=(12, 8))
 
         # Plot 1: Closing Prices
-        axes[0].plot(comparison["Date"], comparison["SPCX_Close"], label="SPCX", marker="o", linewidth=2, color="blue")
+        axes[0].plot(comparison["Date"], comparison["SPCX_Close"], label="SPCX", marker="o", linewidth=2, color="black")
         axes[0].plot(comparison["Date"], comparison["TSLA_Close"], label="TSLA", marker="s", linewidth=2, color="red")
         axes[0].set_title("Daily Closing Prices: SPCX vs TSLA", fontsize=14, fontweight="bold")
         axes[0].set_ylabel("Price ($)", fontsize=11)
