@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 # 1. Configuration parameters
 ticker_symbol = "SPCX"
 musk_shares = 6.42e9  # 6.42 Billion Shares
-ipo_date = "2026-06-12"
+ipo_date = "2026-06-12" 
 
 # 2. Download daily market data
 spcx_data = yf.download(ticker_symbol, start=ipo_date, interval="1d")
